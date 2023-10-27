@@ -1,0 +1,13 @@
+#!/bin/sh
+
+while read oldrev newrev refname; do
+    if [ "$refname" = "refs/heads/master" ]; then
+        echo "You cannot push to master!"
+        exit 1
+    fi
+
+    if [ "$refname" = "refs/heads/main" ]; then
+        echo "You cannot push to main!"
+        exit 1
+    fi
+done
